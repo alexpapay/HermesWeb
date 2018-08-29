@@ -1,0 +1,54 @@
+﻿@using OvpNgDatabase.Models.OvpNg
+@model List<ThermalIsolation>
+@{
+    ViewBag.Title = "Администрирование базы данных";
+}
+
+<h3 class="m-3">@ViewBag.Title</h3>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.Partial("_AdminMenu")
+        </div>
+        <div class="col">
+            @Html.Partial("_AddThermalIsolation", new ThermalIsolation())
+        </div>
+    </div>
+    <h5 class="mt-4">Существующая теплоизоляция:</h5>
+    <table class="table table-striped">
+        <thead class="thead-blue">
+            <tr>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].Id)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].Purchase)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].IsAvailable)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].Volume)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].Square)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].CreatedAt)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].LastEditAt)</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var thermalIsolation in Model)
+            {
+                <tr>
+                    @using (Html.BeginForm("DeleteThermalIsolation", "Admin", FormMethod.Post))
+                    {
+                        <td>@Html.DisplayTextFor(thermalIsolationItem => thermalIsolation.Id)</td>
+                        <td>@Html.DisplayTextFor(thermalIsolationItem => thermalIsolation.Purchase)</td>
+                        <td>@Html.DisplayTextFor(thermalIsolationItem => thermalIsolation.IsAvailable)</td>
+                        <td>@Html.DisplayTextFor(thermalIsolationItem => thermalIsolation.Volume)</td>
+                        <td>@Html.DisplayTextFor(thermalIsolationItem => thermalIsolation.Square)</td>
+                        <td>@Html.DisplayTextFor(thermalIsolationItem => thermalIsolation.CreatedAt)</td>
+                        <td>@Html.DisplayTextFor(thermalIsolationItem => thermalIsolation.LastEditAt)</td>
+                        <td>
+                            @Html.HiddenFor(thermalIsolationItem => thermalIsolation.Id)
+                            <button class="btn btn-primary btn-outline-danger" type="submit">Удалить</button>
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,55 @@
+﻿@model OvpNgDatabase.Models.ViewModels.StatisticViewModel
+
+<div class="container">
+    @Html.Partial("_BreadCrumbs")
+
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <h5 class="card-header">Инвесторы:</h5>
+                <div class="card-body">
+                    @foreach (var company in @Model.Investors)
+                    {
+                        <p class="card-text">@Html.DisplayTextFor(companyItem => company.Name): @Html.DisplayTextFor(companyItem => company.ObjectsCount) об.</p>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <h5 class="card-header">Проектировщики:</h5>
+                <div class="card-body">
+                    @foreach (var company in @Model.Designers)
+                    {
+                        <p class="card-text">@Html.DisplayTextFor(companyItem => company.Name): @Html.DisplayTextFor(companyItem => company.ObjectsCount) об.</p>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <h5 class="card-header">Подрядчики:</h5>
+                <div class="card-body">
+                    @foreach (var company in @Model.Contractors)
+                    {
+                        <p class="card-text">@Html.DisplayTextFor(companyItem => company.Name): @Html.DisplayTextFor(companyItem => company.ObjectsCount) об.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card mt-3">
+                <h5 class="card-header">Объекты:</h5>
+                <div class="card-body">
+                    @foreach (var objectModel in @Model.ObjectModels)
+                    {
+                        <p class="card-text">@Html.DisplayTextFor(objectModelItem => objectModel.Subject)</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

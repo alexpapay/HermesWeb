@@ -1,0 +1,20 @@
+﻿@model OvpNgDatabase.Models.OvpNg.ConstructionType
+
+<h5>Добавить новый вид строительства:</h5>
+
+@using (Html.BeginForm("AddConstructionType", "Admin", FormMethod.Post))
+{
+    <table class="table table-striped">
+        <tr>
+            <th scope="col">Наименование данных</th>
+            <th scope="col">Значение</th>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Name)</td>
+            <td>@Html.TextBoxFor(objectModel => objectModel.Name, new { @class = "form-control" })</td>
+        </tr>
+    </table>
+    <div class="row h-100 justify-content-center align-items-center">
+        <button class="btn btn-primary btn-outline-success align-content-center" type="submit">Добавить</button>
+    </div>
+}

@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>НИИСТ Гермес</title>
+    @*@Styles.Render("~/Content/css")*@
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="/Content/bootstrap.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!--<a class="navbar-brand" href="#">Navbar</a>-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto ml-2">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><img src="https://investprojects.info/web/img/newdesign/russia.svg" class="align-bottom" width="25" height="25"></a>
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("О СИСТЕМЕ", "About", "Home", new { area = "" }, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("КОНТАКТЫ", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                @Html.Partial("_LoginPartial")
+            </form>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-blue navbar-dark justify-content-between">
+        <a href='@Url.Action("Index", "Home")'>
+            <img src="~/Content/Images/logo.png" class="img-fluid" style="width: 200px;" />
+        </a>
+        <div class="navbar navbar-dark bg-blue justify-content-end">
+            <div class="navbar-nav  align-items-end">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item text-right">
+                        @Html.ActionLink("БАЗА ОБЪЕКТОВ", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item text-right">
+                        @Html.ActionLink("СТАТИСТИКА", "Index", "Statistics", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li class="nav-item text-right">
+                            @Html.ActionLink("АДМИНИСТРИРОВАНИЕ", "Index", "Admin", new { area = "" }, new { @class = "nav-link" })
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+
+    <footer class="bg-blue py-5 pt-5 mt-5">
+        <div class="container bg-blue">
+            <div class="row">
+                <div class="col-sm">
+                    <a href='@Url.Action("Index", "Home")' >
+                        <img src="~/Content/Images/logo.png" class="img-fluid mb-2" style="width: 200px;" />
+                    </a>
+                    <br />
+                    <a class="text-white">
+                        Система «НИИСТ-Гермес» направлена на специалистов компаний, поставляющих МТР для сегмента нефть и газ, таких как коммерческие директора и специалисты по маркетингу и планированию продаж.
+                    </a>
+                    <br />
+                    <br />
+                    <a class="text-white">
+                        Вся информация, размещенная на данном веб-сайте, предназначена только для персонального пользования и не подлежит дальнейшему воспроизведению и / или распространению в какой-либо форме, иначе как с письменного разрешения компании "НИИСТ".
+                    </a>
+                    <br />
+                    <br />
+                    <a class="text-white text-center mt-2">
+                        © 2018 | ПРОЕКТ ИССЛЕДОВАТЕЛЬСКОЙ КОМПАНИИ "НИИСТ"
+                    </a>
+                </div>
+                <div class="col-sm mt-4">
+                    <a class="text-white">
+                        Научно-исследовательский институт по строительству трубопроводов "НИИСТ"<br />
+                        196247, Россия, Москва, ул. Наметкина, 14, кор.2<br />
+                        +7 (499) 495-45-81<br />
+                        info@niist.ru
+                    </a>
+                    <br />
+                    <br />
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

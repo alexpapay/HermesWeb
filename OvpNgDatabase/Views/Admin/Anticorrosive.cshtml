@@ -1,0 +1,54 @@
+﻿@using OvpNgDatabase.Models.OvpNg
+@model List<Anticorrosive>
+@{
+    ViewBag.Title = "Администрирование базы данных";
+}
+
+<h3 class="m-3">@ViewBag.Title</h3>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.Partial("_AdminMenu")
+        </div>
+        <div class="col">
+            @Html.Partial("_AddAnticorrosive", new Anticorrosive())
+        </div>
+    </div>
+    <h5 class="mt-4">Существующая антикоррозия:</h5>
+    <table class="table table-striped">
+        <thead class="thead-blue">
+            <tr>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].Id)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].Purchase)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].IsPaintAndVarnish)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].IsTubesInside)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].IsTubesOutside)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].CreatedAt)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].LastEditAt)</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var anticorrosive in Model)
+            {
+                <tr>
+                    @using (Html.BeginForm("DeleteAnticorrosive", "Admin", FormMethod.Post))
+                    {
+                        <td>@Html.DisplayTextFor(anticorrosiveItem => anticorrosive.Id)</td>
+                        <td>@Html.DisplayTextFor(anticorrosiveItem => anticorrosive.Purchase)</td>
+                        <td>@Html.DisplayTextFor(anticorrosiveItem => anticorrosive.IsPaintAndVarnish)</td>
+                        <td>@Html.DisplayTextFor(anticorrosiveItem => anticorrosive.IsTubesInside)</td>
+                        <td>@Html.DisplayTextFor(anticorrosiveItem => anticorrosive.IsTubesOutside)</td>
+                        <td>@Html.DisplayTextFor(anticorrosiveItem => anticorrosive.CreatedAt)</td>
+                        <td>@Html.DisplayTextFor(anticorrosiveItem => anticorrosive.LastEditAt)</td>
+                        <td>
+                            @Html.HiddenFor(anticorrosiveItem => anticorrosive.Id)
+                            <button class="btn btn-primary btn-outline-danger" type="submit">Удалить</button>
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

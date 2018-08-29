@@ -1,0 +1,32 @@
+﻿@model OvpNgDatabase.Models.OvpNg.Anticorrosive
+
+<h5>Добавить новую антикоррозию:</h5>
+
+@using (Html.BeginForm("AddAnticorrosive", "Admin", FormMethod.Post))
+{
+    <table class="table table-striped">
+        <tr>
+            <th scope="col">Наименование данных</th>
+            <th scope="col">Значение</th>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Purchase)</td>
+            <td>@Html.TextBoxFor(objectModel => objectModel.Purchase, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.IsPaintAndVarnish)</td>
+            <td>@Html.CheckBoxFor(objectModel => objectModel.IsPaintAndVarnish, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.IsTubesInside)</td>
+            <td>@Html.CheckBoxFor(objectModel => objectModel.IsTubesInside, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.IsTubesOutside)</td>
+            <td>@Html.CheckBoxFor(objectModel => objectModel.IsTubesOutside, new { @class = "form-control" })</td>
+        </tr>
+    </table>
+    <div class="row h-100 justify-content-center align-items-center">
+        <button class="btn btn-primary btn-outline-success align-content-center" type="submit">Добавить</button>
+    </div>
+}

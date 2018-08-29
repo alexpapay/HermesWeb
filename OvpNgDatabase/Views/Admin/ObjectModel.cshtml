@@ -1,0 +1,85 @@
+﻿@using OvpNgDatabase.Models.OvpNg
+@model List<ObjectModel>
+@{
+    ViewBag.Title = "Администрирование базы данных";
+}
+
+<h3 class="m-3">@ViewBag.Title</h3>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3">
+            @Html.Partial("_AdminMenu")
+        </div>
+        <div class="col-sm">
+            @Html.Partial("_AddObjectModel", new ObjectModel())
+        </div>
+    </div>
+</div>
+<br />
+<h5 class="mt-4">Существующие объекты:</h5>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead class="thead-blue">
+            <tr>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].Id)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].ObjectName)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].SubObjectId)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].Subject)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].CompletionRate)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].ConstructionTypeId)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].StageId)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].ObjectStart)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].ObjectFinish)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].ConstructionStart)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].ConstructionFinish)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].DesignStart)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].DesignFinish)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].CreatedAt)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].CreatedBy)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].LastEditAt)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].LastEditBy)</th>
+                <th scope="col">Редактировать</th>
+                <th scope="col">Удалить</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var objectModel in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayTextFor(objectModelTypeItem => objectModel.Id)</td>
+                    <td>@Html.DisplayTextFor(objectModelTypeItem => objectModel.ObjectName)</td>
+                    <td>@Html.DisplayTextFor(objectModelTypeItem => objectModel.SubObjectId)</td>
+                    <td>@Html.DisplayTextFor(objectModelTypeItem => objectModel.Subject)</td>
+                    <td>@Html.DisplayTextFor(objectModelTypeItem => objectModel.CompletionRate)</td>
+                    <td>@Html.DisplayTextFor(objectModelTypeItem => objectModel.ConstructionTypeId)</td>
+                    <td>@Html.DisplayTextFor(objectModelTypeItem => objectModel.StageId)</td>
+                    <td>@Html.DisplayTextFor(objectModelTypeItem => objectModel.ObjectStart)</td>
+                    <td>@Html.DisplayTextFor(objectModelTypeItem => objectModel.ObjectFinish)</td>
+                    <td>@Html.DisplayTextFor(objectModelTypeItem => objectModel.ConstructionStart)</td>
+                    <td>@Html.DisplayTextFor(objectModelTypeItem => objectModel.ConstructionFinish)</td>
+                    <td>@Html.DisplayTextFor(objectModelTypeItem => objectModel.DesignStart)</td>
+                    <td>@Html.DisplayTextFor(objectModelTypeItem => objectModel.DesignFinish)</td>
+                    <td>@Html.DisplayTextFor(objectModelTypeItem => objectModel.CreatedAt)</td>
+                    <td>@Html.DisplayTextFor(objectModelTypeItem => objectModel.CreatedBy)</td>
+                    <td>@Html.DisplayTextFor(objectModelTypeItem => objectModel.LastEditAt)</td>
+                    <td>@Html.DisplayTextFor(objectModelTypeItem => objectModel.LastEditBy)</td>
+
+                    @using (Html.BeginForm("GetEditObjectModel", "Admin", FormMethod.Get))
+                {
+                        <td>
+                            <button class="btn btn-primary btn-outline-primary" name="id" value="@objectModel.Id" type="submit">Редактировать</button>
+                        </td>
+                    }
+                    @using (Html.BeginForm("DeleteObjectModel", "Admin", FormMethod.Post))
+                {
+                        <td>
+                            @Html.HiddenFor(objectModelTypeItem => objectModel.Id)
+                            <button class="btn btn-primary btn-outline-danger" type="submit">Удалить</button>
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

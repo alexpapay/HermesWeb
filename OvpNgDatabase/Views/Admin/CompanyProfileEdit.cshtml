@@ -1,0 +1,22 @@
+﻿@model OvpNgDatabase.Models.OvpNg.CompanyProfile
+
+<h5 class="mt-4">Редактировать профиль компании</h5>
+@using (Html.BeginForm("PostEditCompanyProfile", "Admin", FormMethod.Post))
+{
+    <table class="table table-striped">
+        <tr>
+            <th scope="col">Наименование данных</th>
+            <th scope="col">Значение</th>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Name)</td>
+            <td>@Html.TextBoxFor(objectModel => objectModel.Name, new { @class = "form-control" })</td>
+        </tr>
+    </table>
+    <div class="row h-100 justify-content-center align-items-center">
+        @Html.HiddenFor(objectModel => objectModel.CreatedBy)
+        @Html.HiddenFor(objectModel => objectModel.CreatedAt)
+        @Html.HiddenFor(objectModel => objectModel.Id)
+        <button class="btn btn-primary btn-outline-success align-content-center" type="submit">Обновить</button>
+    </div>
+}

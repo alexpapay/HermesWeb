@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "_AdminMenu";
+}
+
+<ul class="navbar-nav mr-auto ml-1 ">
+    <li class="nav-item">
+        @Html.ActionLink("Объект", "ObjectModel", "Admin", new { area = "" }, new { @class = "nav-link m-1 btn btn-outline-success" })
+    </li>
+    <li class="nav-item">
+        @Html.ActionLink("Компания", "Company", "Admin", new { area = "" }, new { @class = "nav-link m-1 btn btn-outline-success" })
+    </li>
+    <li class="nav-item">
+        @Html.ActionLink("Профиль компании", "CompanyProfile", "Admin", new { area = "" }, new { @class = "nav-link m-1 btn btn-outline-success" })
+    </li>
+    <li class="nav-item">
+        @Html.ActionLink("Вид строительства", "ConstructionType", "Admin", new { area = "" }, new { @class = "nav-link m-1 btn btn-outline-success" })
+    </li>
+    <li class="nav-item">
+        @Html.ActionLink("Стадии объекта", "Stage", "Admin", new { area = "" }, new { @class = "nav-link m-1 btn btn-outline-success" })
+    </li>
+    <li class="nav-item">
+        @Html.ActionLink("Теплоизоляция", "ThermalIsolation", "Admin", new { area = "" }, new { @class = "nav-link m-1 btn btn-outline-success" })
+    </li>
+    <li class="nav-item">
+        @Html.ActionLink("Антикороззийка", "Anticorrosive", "Admin", new { area = "" }, new { @class = "nav-link m-1 btn btn-outline-success" })
+    </li>
+</ul>

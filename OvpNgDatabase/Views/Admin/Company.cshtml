@@ -1,0 +1,68 @@
+﻿@using OvpNgDatabase.Models.OvpNg
+@model List<Company>
+@{
+    ViewBag.Title = "Администрирование базы данных";
+}
+
+<h3 class="m-3">@ViewBag.Title</h3>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3">
+            @Html.Partial("_AdminMenu")
+        </div>
+        <div class="col-sm">
+            @Html.Partial("_AddCompany", new Company())
+        </div>
+    </div>
+</div>
+<h5 class="mt-4">Существующие компании:</h5>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead class="thead-blue">
+            <tr>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].Id)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].Name)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].BusinessName)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].CompanyProfileId)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].Website)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].CreatedAt)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].CreatedBy)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].LastEditAt)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model[0].LastEditBy)</th>
+                <th scope="col">Редактировать</th>
+                <th scope="col">Удалить</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var company in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayTextFor(companyItem => company.Id)</td>
+                    <td>@Html.DisplayTextFor(companyItem => company.Name)</td>
+                    <td>@Html.DisplayTextFor(companyItem => company.BusinessName)</td>
+                    <td>@Html.DisplayTextFor(companyItem => company.CompanyProfileId)</td>
+                    <td>@Html.DisplayTextFor(companyItem => company.Website)</td>
+                    <td>@Html.DisplayTextFor(companyItem => company.CreatedAt)</td>
+                    <td>@Html.DisplayTextFor(companyItem => company.CreatedBy)</td>
+                    <td>@Html.DisplayTextFor(companyItem => company.LastEditAt)</td>
+                    <td>@Html.DisplayTextFor(companyItem => company.LastEditBy)</td>
+
+                    @using (Html.BeginForm("GetEditCompany", "Admin", FormMethod.Get))
+                {
+                        <td>
+                            <button class="btn btn-primary btn-outline-primary" name="id" value="@company.Id" type="submit">Редактировать</button>
+                        </td>
+                    }
+                    @using (Html.BeginForm("DeleteCompany", "Admin", FormMethod.Post))
+                {
+                        <td>
+                            @Html.HiddenFor(companyItem => company.Id)
+                            <button class="btn btn-primary btn-outline-danger" type="submit">Удалить</button>
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

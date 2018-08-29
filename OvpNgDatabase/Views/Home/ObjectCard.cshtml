@@ -1,0 +1,66 @@
+﻿@model OvpNgDatabase.Models.OvpNg.ObjectModel
+
+@Html.Partial("_BreadCrumbs")
+
+<h4 class="mt-3">@Html.DisplayTextFor(model => model.ObjectName)</h4>
+<div class="card mt-3">
+    <h5 class="card-header">Заказчик</h5>
+    <div class="card-body">
+        <p class="card-text">Владелец: @Html.DisplayTextFor(model => model.Owner.Name)</p>
+        <p class="card-text">Инвестор: @Html.DisplayTextFor(model => model.Investor.Name)</p>
+        <p class="card-text">Подразделение инвестора: @Html.DisplayTextFor(model => model.InvestorDepartment.Name)</p>
+        <p class="card-text">Генподрядчик проекта: @Html.DisplayTextFor(model => model.GeneralContractor.Name)</p>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <h5 class="card-header">Регион</h5>
+    <div class="card-body">
+        <p class="card-text">Округ: @Html.DisplayTextFor(model => model.GeoDataDistrict.Name)</p>
+        <p class="card-text">Область: @Html.DisplayTextFor(model => model.RegionName)</p>
+        <p class="card-text">Идентификатор: @Html.DisplayTextFor(model => model.Identifier)</p>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <h5 class="card-header">Объект</h5>
+    <div class="card-body">
+        <p class="card-text">Объект: @Html.DisplayTextFor(model => model.ObjectName)</p>
+        <p class="card-text">Предмет: @Html.DisplayTextFor(model => model.Subject)</p>
+
+        @if (User.IsInRole("admin"))
+        {
+            <p class="card-text">% проработки: @Html.DisplayTextFor(model => model.CompletionRate)</p>
+        }
+
+        <p class="card-text">Вид строительства: @Html.DisplayTextFor(model => model.ConstructionType.Name)</p>
+        <p class="card-text">Входит в объект: @Html.DisplayTextFor(model => model.SubObjectId)</p>
+        <p class="card-text">Стадия МН: @Html.DisplayTextFor(model => model.Stage.Name)</p>
+        <p class="card-text">Начало строительства: @Html.DisplayTextFor(model => model.ObjectStart)</p>
+        <p class="card-text">Окончание строительства: @Html.DisplayTextFor(model => model.ConstructionFinish)</p>
+        <p class="card-text">Сметы: @Html.DisplayTextFor(model => model.IsHaveCalculations)</p>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <h5 class="card-header">Проектировщик</h5>
+    <div class="card-body">
+        <p class="card-text">Генпроектировщик: @Html.DisplayTextFor(model => model.GeneralDesigner.Name)</p>
+        <p class="card-text">Проектировщик: @Html.DisplayTextFor(model => model.Designer.Name)</p>
+        <p class="card-text">Независимый контроль: @Html.DisplayTextFor(model => model.NonDependentController.Name)</p>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <h5 class="card-header">Конструктор</h5>
+    <div class="card-body">
+        <p class="card-text">Наименование: @Html.DisplayTextFor(model => model.Constructor.Name)</p>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <h5 class="card-header">Подрядчик</h5>
+    <div class="card-body">
+        <p class="card-text">Наименование: @Html.DisplayTextFor(model => model.Contractor.Name)</p>
+    </div>
+</div>

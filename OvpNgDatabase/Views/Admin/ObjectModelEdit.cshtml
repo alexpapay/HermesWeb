@@ -1,0 +1,118 @@
+﻿@model OvpNgDatabase.Models.OvpNg.ObjectModel
+
+<h5 class="mt-4">Добавить новый объект:</h5>
+@using (Html.BeginForm("PostEditObjectModel", "Admin", FormMethod.Post))
+{
+    <table class="table table-striped">
+        <tr>
+            <th scope="col">Наименование данных</th>
+            <th scope="col">Значение</th>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.ObjectName)</td>
+            <td>@Html.TextBoxFor(objectModel => objectModel.ObjectName, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.SubObjectId)</td>
+            <td>@Html.TextBoxFor(objectModel => objectModel.SubObjectId, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Subject)</td>
+            <td>@Html.TextBoxFor(objectModel => objectModel.Subject, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.CompletionRate)</td>
+            <td>@Html.TextBoxFor(objectModel => objectModel.CompletionRate, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.ConstructionTypeId)</td>
+            <td>@Html.DropDownListFor(model => model.ConstructionTypeId, new SelectList(Model.ConstructionTypesList, "Id", "Name", Model.ConstructionTypeId), new { @class = "dropdown-item", @style = "border: 1;" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.StageId)</td>
+            <td>@Html.DropDownListFor(model => model.StageId, new SelectList(Model.StagesList, "Id", "Name", Model.StageId), new { @class = "dropdown-item", @style = "border: 1;" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.GeoDistrictId)</td>
+            <td>@Html.DropDownListFor(model => model.GeoDistrictId, new SelectList(Model.GeoDataDistrictList, "Id", "Name", Model.StageId), new { @class = "dropdown-item", @style = "border: 1;" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.RegionName)</td>
+            <td>@Html.TextBoxFor(objectModel => objectModel.RegionName, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Identifier)</td>
+            <td>@Html.TextBoxFor(objectModel => objectModel.Identifier, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.ObjectStart)</td>
+            <td>@Html.TextBoxFor(objectModel => objectModel.ObjectStart, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.ObjectFinish)</td>
+            <td>@Html.TextBoxFor(objectModel => objectModel.ObjectFinish, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.ConstructionStart)</td>
+            <td>@Html.TextBoxFor(objectModel => objectModel.ConstructionStart, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.ConstructionFinish)</td>
+            <td>@Html.TextBoxFor(objectModel => objectModel.ConstructionFinish, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.DesignStart)</td>
+            <td>@Html.TextBoxFor(objectModel => objectModel.DesignStart, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.DesignFinish)</td>
+            <td>@Html.TextBoxFor(objectModel => objectModel.DesignFinish, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.IsHaveCalculations)</td>
+            <td>@Html.CheckBoxFor(objectModel => objectModel.IsHaveCalculations, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.OwnerId)</td>
+            <td>@Html.DropDownListFor(model => model.OwnerId, new SelectList(Model.CompaniesList, "Id", "Name", Model.OwnerId), new { @class = "dropdown-item", @style = "border: 1;" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.InvestorId)</td>
+            <td>@Html.DropDownListFor(model => model.InvestorId, new SelectList(Model.CompaniesList, "Id", "Name", Model.InvestorId), new { @class = "dropdown-item", @style = "border: 1;" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.InvestorDepartmentId)</td>
+            <td>@Html.DropDownListFor(model => model.InvestorDepartmentId, new SelectList(Model.CompaniesList, "Id", "Name", Model.InvestorDepartmentId), new { @class = "dropdown-item", @style = "border: 1;" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.GeneralContractorId)</td>
+            <td>@Html.DropDownListFor(model => model.GeneralContractorId, new SelectList(Model.CompaniesList, "Id", "Name", Model.GeneralContractorId), new { @class = "dropdown-item", @style = "border: 1;" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.GeneralDesignerId)</td>
+            <td>@Html.DropDownListFor(model => model.GeneralDesignerId, new SelectList(Model.CompaniesList, "Id", "Name", Model.GeneralDesignerId), new { @class = "dropdown-item", @style = "border: 1;" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.DesignerId)</td>
+            <td>@Html.DropDownListFor(model => model.DesignerId, new SelectList(Model.CompaniesList, "Id", "Name", Model.DesignerId), new { @class = "dropdown-item", @style = "border: 1;" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.ConstructorId)</td>
+            <td>@Html.DropDownListFor(model => model.ConstructorId, new SelectList(Model.CompaniesList, "Id", "Name", Model.ConstructorId), new { @class = "dropdown-item", @style = "border: 1;" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.NonDependentControllerId)</td>
+            <td>@Html.DropDownListFor(model => model.NonDependentControllerId, new SelectList(Model.CompaniesList, "Id", "Name", Model.NonDependentControllerId), new { @class = "dropdown-item", @style = "border: 1;" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.ContractorId)</td>
+            <td>@Html.DropDownListFor(model => model.ContractorId, new SelectList(Model.CompaniesList, "Id", "Name", Model.ContractorId), new { @class = "dropdown-item", @style = "border: 1;" })</td>
+        </tr>
+    </table>
+    <div class="row h-100 justify-content-center align-items-center">
+        @Html.HiddenFor(x => x.CreatedAt)
+        @Html.HiddenFor(x => x.CreatedBy)
+        @Html.HiddenFor(x => x.Id)
+        <button class="btn btn-primary btn-outline-success align-content-center" type="submit">Обновить</button>
+    </div>
+}

@@ -1,0 +1,60 @@
+﻿@using OvpNgDatabase.Models.OvpNg
+@model List<CompanyProfile>
+@{
+    ViewBag.Title = "Администрирование базы данных";
+}
+
+<h3 class="m-3">@ViewBag.Title</h3>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3">
+            @Html.Partial("_AdminMenu")
+        </div>
+        <div class="col-sm">
+            @Html.Partial("_AddCompanyProfile", new CompanyProfile())
+        </div>
+    </div>
+</div>
+<h5 class="mt-4">Существующие профили компаний:</h5>
+<table class="table table-striped">
+    <thead class="thead-blue">
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model[0].Id)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model[0].Name)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model[0].CreatedAt)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model[0].CreatedBy)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model[0].LastEditAt)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model[0].CreatedBy)</th>
+            <th scope="col">Редактировать</th>
+            <th scope="col">Удалить</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var companyProfile in Model)
+            {
+            <tr>
+                <td>@Html.DisplayTextFor(companyProfileItem => companyProfile.Id)</td>
+                <td>@Html.DisplayTextFor(companyProfileItem => companyProfile.Name)</td>
+                <td>@Html.DisplayTextFor(companyProfileItem => companyProfile.CreatedAt)</td>
+                <td>@Html.DisplayTextFor(companyProfileItem => companyProfile.CreatedBy)</td>
+                <td>@Html.DisplayTextFor(companyProfileItem => companyProfile.LastEditAt)</td>
+                <td>@Html.DisplayTextFor(companyProfileItem => companyProfile.LastEditBy)</td>
+
+                @using (Html.BeginForm("GetEditCompanyProfile", "Admin", FormMethod.Get))
+                {
+                    <td>
+                        <button class="btn btn-primary btn-outline-primary" name="id" value="@companyProfile.Id" type="submit">Редактировать</button>
+                    </td>
+                }
+                @using (Html.BeginForm("DeleteCompanyProfile", "Admin", FormMethod.Post))
+                {
+                    <td>
+                        @Html.HiddenFor(companyProfileItem => companyProfile.Id)
+                        <button class="btn btn-primary btn-outline-danger" type="submit">Удалить</button>
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
