@@ -4,9 +4,10 @@ using OvpNgDatabase.Models.OvpNg;
 
 namespace OvpNgDatabase.Models
 {
+    [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public class OvpNgContext : DbContext
     {
-        public OvpNgContext() : base("DefaultConnection")
+        public OvpNgContext() : base("HermesDb")
         {
             
         }

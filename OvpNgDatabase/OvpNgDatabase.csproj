@@ -58,9 +58,20 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.10.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.10.8\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.12\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -199,45 +210,14 @@
     <Compile Include="Interfaces\IAdminRepository.cs" />
     <Compile Include="Interfaces\IHomeRepository.cs" />
     <Compile Include="Interfaces\IStaticticRepository.cs" />
-    <Compile Include="Migrations\201806192001286_Reinit.cs" />
-    <Compile Include="Migrations\201806192001286_Reinit.Designer.cs">
-      <DependentUpon>201806192001286_Reinit.cs</DependentUpon>
+    <Compile Include="MigrationsAccount\201809011348154_Init.cs" />
+    <Compile Include="MigrationsAccount\201809011348154_Init.Designer.cs">
+      <DependentUpon>201809011348154_Init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806192131509_RegionFixes.cs" />
-    <Compile Include="Migrations\201806192131509_RegionFixes.Designer.cs">
-      <DependentUpon>201806192131509_RegionFixes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806192207314_NoCustomer.cs" />
-    <Compile Include="Migrations\201806192207314_NoCustomer.Designer.cs">
-      <DependentUpon>201806192207314_NoCustomer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806202021125_CompanyProfile.cs" />
-    <Compile Include="Migrations\201806202021125_CompanyProfile.Designer.cs">
-      <DependentUpon>201806202021125_CompanyProfile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806202024362_CompanyProfileFk.cs" />
-    <Compile Include="Migrations\201806202024362_CompanyProfileFk.Designer.cs">
-      <DependentUpon>201806202024362_CompanyProfileFk.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806202040210_LastEditAdded.cs" />
-    <Compile Include="Migrations\201806202040210_LastEditAdded.Designer.cs">
-      <DependentUpon>201806202040210_LastEditAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806262000092_ObjectDataEdit.cs" />
-    <Compile Include="Migrations\201806262000092_ObjectDataEdit.Designer.cs">
-      <DependentUpon>201806262000092_ObjectDataEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806282008138_GeoDataUpdated.cs" />
-    <Compile Include="Migrations\201806282008138_GeoDataUpdated.Designer.cs">
-      <DependentUpon>201806282008138_GeoDataUpdated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806282033183_GeoDataUpdatedFix.cs" />
-    <Compile Include="Migrations\201806282033183_GeoDataUpdatedFix.Designer.cs">
-      <DependentUpon>201806282033183_GeoDataUpdatedFix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806282052067_GeoDataUpdatedClean.cs" />
-    <Compile Include="Migrations\201806282052067_GeoDataUpdatedClean.Designer.cs">
-      <DependentUpon>201806282052067_GeoDataUpdatedClean.cs</DependentUpon>
+    <Compile Include="MigrationsAccount\Configuration.cs" />
+    <Compile Include="Migrations\201809011414597_MySQlInit.cs" />
+    <Compile Include="Migrations\201809011414597_MySQlInit.Designer.cs">
+      <DependentUpon>201809011414597_MySQlInit.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -530,35 +510,11 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806192001286_Reinit.resx">
-      <DependentUpon>201806192001286_Reinit.cs</DependentUpon>
+    <EmbeddedResource Include="MigrationsAccount\201809011348154_Init.resx">
+      <DependentUpon>201809011348154_Init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806192131509_RegionFixes.resx">
-      <DependentUpon>201806192131509_RegionFixes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806192207314_NoCustomer.resx">
-      <DependentUpon>201806192207314_NoCustomer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806202021125_CompanyProfile.resx">
-      <DependentUpon>201806202021125_CompanyProfile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806202024362_CompanyProfileFk.resx">
-      <DependentUpon>201806202024362_CompanyProfileFk.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806202040210_LastEditAdded.resx">
-      <DependentUpon>201806202040210_LastEditAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806262000092_ObjectDataEdit.resx">
-      <DependentUpon>201806262000092_ObjectDataEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806282008138_GeoDataUpdated.resx">
-      <DependentUpon>201806282008138_GeoDataUpdated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806282033183_GeoDataUpdatedFix.resx">
-      <DependentUpon>201806282033183_GeoDataUpdatedFix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806282052067_GeoDataUpdatedClean.resx">
-      <DependentUpon>201806282052067_GeoDataUpdatedClean.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201809011414597_MySQlInit.resx">
+      <DependentUpon>201809011414597_MySQlInit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

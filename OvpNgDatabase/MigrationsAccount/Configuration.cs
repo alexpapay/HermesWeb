@@ -1,19 +1,19 @@
-namespace OvpNgDatabase.Migrations
+namespace OvpNgDatabase.MigrationsAccount
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<OvpNgDatabase.Models.OvpNgContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<OvpNgDatabase.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            MigrationsDirectory = @"Migrations";
+            MigrationsDirectory = @"MigrationsAccount";
         }
 
-        protected override void Seed(OvpNgDatabase.Models.OvpNgContext context)
+        protected override void Seed(OvpNgDatabase.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -7,13 +7,13 @@ namespace OvpNgDatabase.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class CompanyProfileFk : IMigrationMetadata
+    public sealed partial class MySQlInit : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CompanyProfileFk));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(MySQlInit));
         
         string IMigrationMetadata.Id
         {
-            get { return "201806202024362_CompanyProfileFk"; }
+            get { return "201809011414597_MySQlInit"; }
         }
         
         string IMigrationMetadata.Source
